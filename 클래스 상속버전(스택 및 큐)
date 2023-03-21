@@ -1,0 +1,120 @@
+//수정중 
+class LinkedList
+{
+public:
+	int mData;
+	int mSize;
+	LinkedList* mNext;
+	LinkedList* mPrev;
+
+public:
+	LinkedList() :mData{}, mSize{},mNext {}, mPrev{}
+	{
+
+	}
+	~LinkedList()
+	{
+
+	}
+
+public:
+	virtual void Push()
+	{
+		
+	}
+	virtual void Pop()
+	{
+
+	}
+};
+
+class Stack :public LinkedList
+{
+private:
+	LinkedList* mTop;
+	LinkedList* mBottom;
+
+public:
+	Stack() :mTop{}, mBottom{}
+	{
+		LinkedList* Element = new LinkedList;
+		mTop = Element;
+		mBottom = Element;
+	}
+	~Stack()
+	{
+
+	}
+
+public:
+	void Push(int number)
+	{
+		if (mTop->mSize==0)
+		{
+			LinkedList* Element = new LinkedList;
+			mTop = Element;
+			mBottom = Element;
+			mTop->mSize++;
+		}
+		else if(mTop->mSize>0)
+		{
+			mTop->mData = number;
+			LinkedList* Element = new LinkedList;
+			mTop = Element;
+			Element->mPrev = mBottom;
+			mTop->mSize++;
+		}
+	}
+	void Pop()
+	{
+
+	}
+	int Print(int answer)
+	{
+		int number;
+		if (answer==1)
+		{
+			std::cout << "push value?";
+			std::cin >> number;
+			return number;
+		}
+		else if (answer == 2)
+		{
+			std::cout << "pop value?";
+			std::cin >> number;
+			return number;
+		}
+	}
+};
+
+class Queue :public LinkedList
+{
+private:
+
+	LinkedList* mHead;
+	LinkedList* mTail;
+
+public:
+	Queue() :mHead{}, mTail{}
+	{
+
+	}
+	~Queue()
+	{
+
+	}
+
+public:
+	void Push()
+	{
+
+	}
+	void Pop()
+	{
+
+	}
+	void Print()
+	{
+
+	}
+};
